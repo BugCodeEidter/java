@@ -1,0 +1,12 @@
+com\ljl\controller\UserController.class
+com\ljl\pojo\PageUtils.class
+com\ljl\controller\BookController.class
+com\ljl\utils\pool\DruidDataSourceFactory.class
+com\ljl\pojo\Book.class
+com\ljl\mapper\UserMapper.class
+com\ljl\pojo\User.class
+com\ljl\service\impl\BookServiceImpl.class
+com\ljl\mapper\BookMapper.class
+com\ljl\service\impl\UserServiceImpl.class
+com\ljl\service\UserService.class
+com\ljl\service\BookService.class

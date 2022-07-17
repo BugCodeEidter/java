@@ -11,14 +11,14 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageUtils {
+public class PageUtils<T> {
     private Integer rowPage;
     private Integer currentPage;
     private Integer toTalPage;
     private Integer toTalCounts;
     private Integer rowsCurrent;
     private String queryBookName;
-    private List<Book> bookList;
+    private List<T> bookList;
     private Integer start;
     private Integer end;
 }

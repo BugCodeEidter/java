@@ -21,9 +21,9 @@ public interface BookService {
 
     int toTalCounts();
 
-    PageUtils findPageBook(Integer currentPage, Integer rowPage);
+    PageUtils<Book> findPageBook(Integer currentPage, Integer rowPage);
 
     int toTalQueryCounts(String queryBookName);
 
-    PageUtils findPageBookByBookName(String queryBookName, Integer currentPage,Integer rowPage);
+    PageUtils<Book> findPageBookByBookName(String queryBookName, Integer currentPage,Integer rowPage);
 }

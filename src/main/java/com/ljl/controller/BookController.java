@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
 
 @Controller
 @RequestMapping("/book")
@@ -25,8 +24,8 @@ public class BookController {
             currentPage=1;
         }
         Integer rowPage=10;
-        PageUtils bookPage=bookService.findPageBook(currentPage,rowPage);
-        PageUtils page = getPage(bookPage);
+        PageUtils<Book> bookPage=bookService.findPageBook(currentPage,rowPage);
+        PageUtils<Book> page = getPage(bookPage);
         model.addAttribute("bookPage",page);
         return "allBook";
     }
@@ -70,8 +69,8 @@ public class BookController {
         }
         System.out.println(queryBookName+","+currentPage);
         Integer rowpage=10;
-        PageUtils bookPage=bookService.findPageBookByBookName(queryBookName,currentPage,rowpage);
-        PageUtils page = getPage(bookPage);
+        PageUtils<Book> bookPage=bookService.findPageBookByBookName(queryBookName,currentPage,rowpage);
+        PageUtils<Book> page = getPage(bookPage);
         if(page.getBookList().isEmpty()){
             model.addAttribute("errorMessage",false);
         }else{
@@ -82,9 +81,9 @@ public class BookController {
         return "queryBook";
     }
 
-    public PageUtils getPage(PageUtils bookPage){
-        Integer start;
-        Integer end;
+    public PageUtils<Book> getPage(PageUtils<Book> bookPage){
+        Integer start=null;
+        Integer end=null;
         Integer totalPage=bookPage.getToTalPage();
         Integer currentPage = bookPage.getCurrentPage();
         if(totalPage<=5){

@@ -50,9 +50,9 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public PageUtils findPageBook(Integer currentPage, Integer rowPage) {
+    public PageUtils<Book> findPageBook(Integer currentPage, Integer rowPage) {
         int toTalCounts = toTalCounts();
-        PageUtils pageUtils = getPageUtils(currentPage, rowPage, toTalCounts);
+        PageUtils<Book> pageUtils = getPageUtils(currentPage, rowPage, toTalCounts);
         List<Book> bookList=bookMapper.findPageBook(pageUtils);
         pageUtils.setBookList(bookList);
         return pageUtils;
@@ -64,18 +64,18 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public PageUtils findPageBookByBookName(String queryBookName, Integer currentPage,Integer rowPage) {
+    public PageUtils<Book> findPageBookByBookName(String queryBookName, Integer currentPage,Integer rowPage) {
         int toTalCounts=toTalQueryCounts(queryBookName);
-        PageUtils pageUtils = getPageUtils(currentPage, rowPage, toTalCounts);
+        PageUtils<Book> pageUtils = getPageUtils(currentPage, rowPage, toTalCounts);
         pageUtils.setQueryBookName(queryBookName);
         List<Book> bookList=bookMapper.findPageBookByBookName(pageUtils);
         pageUtils.setBookList(bookList);
         return pageUtils;
     }
 
-    public PageUtils getPageUtils(Integer currentPage, Integer rowPage,Integer toTalCounts){
+    public PageUtils<Book> getPageUtils(Integer currentPage, Integer rowPage,Integer toTalCounts){
         Integer toTalPage=toTalCounts%rowPage==0?toTalCounts/rowPage:toTalCounts/rowPage+1;
-        PageUtils pageUtils=new PageUtils();
+        PageUtils<Book> pageUtils=new PageUtils();
         pageUtils.setCurrentPage(currentPage);
         pageUtils.setRowPage(rowPage);
         Integer rowsCurrent=(currentPage-1)*rowPage;
