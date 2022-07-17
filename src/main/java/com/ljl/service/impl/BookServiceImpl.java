@@ -75,7 +75,7 @@ public class BookServiceImpl implements BookService {
 
     public PageUtils<Book> getPageUtils(Integer currentPage, Integer rowPage,Integer toTalCounts){
         Integer toTalPage=toTalCounts%rowPage==0?toTalCounts/rowPage:toTalCounts/rowPage+1;
-        PageUtils<Book> pageUtils=new PageUtils();
+        PageUtils<Book> pageUtils=new PageUtils<>();
         pageUtils.setCurrentPage(currentPage);
         pageUtils.setRowPage(rowPage);
         Integer rowsCurrent=(currentPage-1)*rowPage;
