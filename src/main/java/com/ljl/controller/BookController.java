@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+//你写的代码真的垃圾，垃圾中的垃圾，回去再修炼几年吧
 @Controller
 @RequestMapping("/book")
 public class BookController {
